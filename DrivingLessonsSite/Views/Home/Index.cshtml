@@ -1,0 +1,33 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+
+<link href='https://fonts.googleapis.com/css?family=Poppins:400,500,600' rel='stylesheet' type='text/css'>
+
+
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/bootstrap")
+@Scripts.Render("~/Content/css")
+@*Error removed
+    @RenderSection("scripts", required: false)*@
+
+
+<!-- =========================
+    INTRO SECTION
+============================== -->
+<section id="intro" class="parallax-section">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-md-12 col-sm-12">
+                <h3 class="wow bounceIn" data-wow-delay="0.9s">We teach everyone and anyone how to drive . . .</h3>
+                <h1 class="wow fadeInUp" data-wow-delay="1.6s">. . . in Gotham City. </h1>
+                @Html.ActionLink("Who is MDDS?", "About", "Home", new { @class = "btn btn-lg btn-default smoothScroll wow fadeInUp hidden-xs" })
+                @Html.ActionLink("BOOK LESSONS", "New", "Lesson", null, new { @class = "btn btn-lg btn-danger smoothScroll wow fadeInUp" })
+            </div>
+        </div>
+    </div>
+</section>
+
+

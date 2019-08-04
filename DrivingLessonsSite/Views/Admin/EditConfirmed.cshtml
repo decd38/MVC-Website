@@ -1,0 +1,25 @@
+﻿
+@{
+    ViewBag.Title = "EditConfirmed";
+}
+
+<section id="contact" class="parallax-section">
+    <div class="container">
+
+
+        <div class="wow fadeInUp col-md-offset-1 col-md-10 col-sm-10" data-wow-delay="0.6s" style="background-color:#101010; border-radius:20px;margin-top:50px">
+            <div class="contact_des" style="text-align:center">
+                <h1 style="color:#f2545f">Lesson Changed <span class="glyphicon glyphicon-check"></span></h1>
+                <br />
+                <p id="bookStyle">Your selected Driving Lesson has been successfully changed <span class="glyphicon glyphicon-ok-sign"></span></p>
+               
+            </div>
+            <br />
+        </div>
+        <div style="margin-left:30%">
+            <a href="@Url.Action("Index", "Admin")" class="btn btn-danger">Driving Lesson Manager</a>
+            <a href="javascript:document.getElementById('logoutForm').submit()" class="btn btn-danger">Log off</a>
+        </div>
+    </div>
+</section>
+

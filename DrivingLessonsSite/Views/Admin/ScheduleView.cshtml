@@ -1,0 +1,45 @@
+﻿@model IEnumerable<DrivingLessonsSite.Models.Customer>
+
+@{
+    ViewBag.Title = "ScheduleView";
+}
+
+<section id="contact" class="parallax-section">
+    <h2 style="text-decoration:underline;text-decoration-color:#f2545f" class="intro-text text-center">
+        @Model.First().LessonDates.Date.ToString("dd/MM/yyyy") Schedule
+    </h2>
+    <table class="table-bordered table-hover" align="center" style="background-color:white">
+
+        <thead style="background-color:#f2545f">
+            <tr>
+                <th>First Name</th>
+                <th>Surname</th>
+                <th>Telephone/Contact Number</th>
+                <th>Time Slot</th>
+                <th>Lesson Date</th>
+            </tr>
+        </thead>
+
+        <tbody>
+
+
+            @foreach (var lesson in Model)
+            {
+                <tr>
+                    <td>@lesson.FirstName</td>
+                    <td>@lesson.Surname</td>
+                    <td>@lesson.TelephoneNo</td>
+                    <td>@lesson.TimeSlots.TimeOfLesson</td>
+                    <td>@lesson.LessonDates.Date.ToString("dd/MM/yyyy")</td>
+                </tr>
+            }
+
+
+        </tbody>
+
+    </table>
+    <div style="text-align:center">
+        @Html.ActionLink("BACK", "Index", "Admin", htmlAttributes: new { @class = "btn btn-danger" })
+    </div>
+</section>
+

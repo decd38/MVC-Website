@@ -1,0 +1,19 @@
+﻿@model DrivingLessonsSite.ViewModels.CustomerLesson
+
+@{
+    ViewBag.Title = "EditSearch";
+}
+
+<h2 style="text-decoration:underline;text-decoration-color:#f2545f" class="intro-text text-center">
+    ENTER SEARCH DETAILS TO FIND BOOKED LESSON . . . 
+</h2>
+
+@using (Html.BeginForm("EditLesson", "Admin"))
+{
+
+    <br />
+    @Html.EditorFor(m => m.LessonDates.Date, new { htmlAttributes = new { @class = "datepicker" } })
+    <br />
+    <input name="submit" type="submit" style="background-color:#f2545f;color:white" id="submit" value="View Selected Days Lessons">
+}
+

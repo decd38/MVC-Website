@@ -1,0 +1,60 @@
+﻿
+@{
+    ViewBag.Title = "About";
+}
+
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/bootstrap")
+@Scripts.Render("~/Content/css")
+
+<link href='https://fonts.googleapis.com/css?family=Poppins:400,500,600' rel='stylesheet' type='text/css'>
+
+-- =========================
+    OVERVIEW SECTION
+============================== -->
+<section id="overview" class="parallax-section">
+    <div class="container">
+        <div class="row">
+
+            <div class="wow fadeInUp col-md-6 col-sm-6" data-wow-delay="0.6s">
+                <h3>MDDS is a fully qualifed ADI (Approved Driving Instructor) and has been teaching for over 10 years.</h3>
+                <p>MDDS is very passionate about his chosen profession and aims to maintain high pass rates.</p>
+                <p>MDDS aspires to create a relaxed, calm learning environment for students as he believes this achieves the best results.</p>
+            </div>
+
+            <div class="wow fadeInUp col-md-6 col-sm-6" data-wow-delay="0.9s">
+                <img src="@Url.Content("~/images/overview-img.jpg")" class="img-responsive" alt="Overview">
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- =========================
+    DETAIL SECTION
+============================== -->
+<section id="detail" class="parallax-section">
+    <div class="container">
+        <div class="row">
+
+            <div class="wow fadeInLeft col-md-4 col-sm-4" data-wow-delay="0.3s">
+                <i class="fa fa-group"></i>
+                <h3>Over 100 First time Passes!</h3>
+                <p>Passing the driving test first time involves understanding what’s involved and to be confident in your ability. MDDS can help you achieve this and you can be the next student to pass first time!</p>
+            </div>
+
+            <div class="wow fadeInUp col-md-4 col-sm-4" data-wow-delay="0.6s">
+                <i class="fa fa-clock-o"></i>
+                <h3>Lesson times that suit you!</h3>
+                <p>Here at MDDS we aim to please so you can take Lessons anytime.  Lessons are provided daytimes, evenings or weekends whatever time suits you!<span style="font-style:italic">  (subject to availability)</span></p>
+            </div>
+
+            <div class="wow fadeInRight col-md-4 col-sm-4" data-wow-delay="0.9s">
+                <i class="fa fa-microphone"></i>
+                <h3>Expert Test Advice</h3>
+                <p>Due to the high number of high first time passes Mark Doherty knows what testers are looking for and what advice to pass on - listen closely!</p>
+            </div>
+
+        </div>
+    </div>
+</section>

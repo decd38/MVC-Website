@@ -1,0 +1,79 @@
+﻿@model DrivingLessonsSite.ViewModels.CustomerLesson
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<link href="~/Content/themes/base/jquery-ui.min.css" rel="stylesheet" />
+<link href="~/Content/font-awesome.min.css" rel="stylesheet" />
+
+@section scripts
+{
+    <script src="~/Scripts/jquery-ui-1.12.1.min.js"></script>
+    <script>
+        $(function () {
+            $(".datepicker").datepicker({
+                dateFormat: "dd/mm/yy",
+                changeMonth: true,
+                changeYear: true,
+                maxYear: "2020",
+                minDate: "+1d",
+                yearRange: "2018:2019",
+                showOn: "both",
+                buttonText: "<i class='fa fa-calendar'></i>",
+                altField: "#alternate",
+                altFormat: "DD, d MM, yy"
+            });
+        });
+
+
+    </script>
+}
+
+<div class="row" style="align-content:center">
+    <d class="box">
+        <div class="col-lg-12">
+            <br />
+            <h2 style="text-decoration:underline;text-decoration-color:#f2545f" class="intro-text text-center">
+                DRIVING LESSON MANAGER
+            </h2>
+
+        </div>
+        <div class="col-sm-6 text-center">
+            <h3 class="adminIcons">Daily Schedule Viewer</h3>
+            <img alt="" src="~/Images/clock.png">
+            <br />
+            @using (Html.BeginForm("ScheduleView", "Admin"))
+            {
+                <br />
+                @Html.EditorFor(m => m.LessonDates.Date, new { htmlAttributes = new { @class = "datepicker" } })
+                <br />
+                <input name="submit" type="submit" style="background-color:#f2545f;color:white" id="submit" value="View Selected Days Lessons">
+                <span style="color:#f2545f" class="glyphicon glyphicon-ban-circle"></span>
+                <h4 style="color:#f2545f;text-decoration:underline;text-decoration-color:#f2545f" class="intro-text text-center">
+                    NO LESSONS BOOKED "YET" FOR THAT SELECTION&nbsp;<span class="glyphicon glyphicon-ban-circle"></span>
+                </h4>
+            }
+
+        </div>
+        <div class="col-sm-6 text-center">
+            <h3 class="adminIcons">Edit or Cancel a booked Lesson</h3>
+            <img alt="" src="~/Images/edit1.png">
+            @using (Html.BeginForm("EditCancelList", "Admin"))
+            {
+                <h4>Enter Customer Surname</h4>
+                @Html.TextBoxFor(m => m.Customers.Surname, new { @placeholder = "Enter Surname . . " })
+                <input name="submit" type="submit" style="background-color:#f2545f;color:white" id="submit" value="Search For Booked Lesson">
+            }
+
+        </div>
+
+
+        <div class="clearfix"></div>
+</div>
+
+
+
+
+
+

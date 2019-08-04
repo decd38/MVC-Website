@@ -1,0 +1,113 @@
+﻿
+@model DrivingLessonsSite.ViewModels.CustomerLesson
+
+
+@{
+    ViewBag.Title = "New";
+}
+
+<link href="~/Content/themes/base/jquery-ui.min.css" rel="stylesheet" />
+<link href="~/Content/font-awesome.min.css" rel="stylesheet" />
+
+@section scripts
+{
+    <script src="~/Scripts/jquery-ui-1.12.1.min.js"></script>
+    <script>
+        $(function () {
+            $(".datepicker").datepicker({
+                dateFormat: "dd/mm/yy",
+                changeMonth: true,
+                changeYear: true,
+                maxYear: "2020",
+                minDate: "+1d",
+                yearRange: "2018:2019",
+                showOn: "both",
+                buttonText: "<i class='fa fa-calendar'></i>",
+                altField: "#alternate",
+                altFormat: "DD, d MM, yy"
+            });
+        });
+
+
+    </script>
+}
+
+<section id="contact" class="parallax-section">
+    <div class="container">
+
+
+        <div class="wow fadeInUp col-md-offset-1 col-md-5 col-sm-6" data-wow-delay="0.6s" style="background-color:#101010; border-radius:10%">
+            <div class="contact_des">
+                <h2 style="color:#f2545f;text-align:center">Lesson Slot Already Taken   <span class="glyphicon glyphicon-thumbs-down"></span></h2>
+                <br />
+                <p id="bookStyle">The date and time of your chosen lesson is already booked by another customer.  Please pick a different lesson slot.</span></p>
+                <p id="bookStyle">If you continue not to be able to find a date and time that suits your needs please @Html.ActionLink("contact me", "About", "Home", new { style = "color:#f2545f" }) and I will do my best to get back to you as soon as possible and facilitate your request.</p>
+
+                <br />
+                <br />
+            </div>
+        </div>
+        <div class="wow fadeInUp col-md-5 col-sm-6" data-wow-delay="0.9s">
+            <div class="contact_detail">
+                @using (Html.BeginForm("BookLesson", "Lesson"))
+                {
+                    <div class="section-title">
+                        <h3><span style="color:#f2545f">Date and Time Booked</span>&nbsp;&nbsp;&nbsp;&nbsp; Please Try Again</h3>
+                    </div>
+                    <div class="box">
+                        <div style="color:#f2545f; font-size:large; width: 100%">
+                            @if (ViewData.ModelState.Any(x => x.Value.Errors.Any()))
+                            {
+                                @Html.ValidationSummary(false, "Please fix the errors:", new { @class = "text-danger" })
+                            }
+                            <div class="form-group">
+                                @Html.Label("First Name")
+                                @Html.TextBoxFor(m => m.Customers.FirstName, new { @class = "form-control", @placeholder = "Enter First Name . . ." })
+                                @Html.ValidationMessageFor(m => m.Customers.FirstName)
+                            </div>
+
+                            <div class="form-group">
+                                @Html.Label("Surname")
+                                @Html.TextBoxFor(m => m.Customers.Surname, new { @class = "form-control", @placeholder = "Enter Surname . . ." })
+                                @Html.ValidationMessageFor(m => m.Customers.Surname)
+                            </div>
+
+                            <div class="form-group">
+                                @Html.Label("Contact Telephone Number")
+                                @Html.TextBoxFor(m => m.Customers.TelephoneNo, new { @class = "form-control", @placeholder = "E.g. 08787 XXXXXX" })
+                                @Html.ValidationMessageFor(m => m.Customers.TelephoneNo)
+                            </div>
+
+                            <div class="form-group">
+                                @Html.Label("Date Selector")&nbsp;<span style="color:black; font-size:xx-large" class="glyphicon glyphicon-thumbs-down"></span>
+                                @Html.EditorFor(m => m.LessonDates.Date, new { htmlAttributes = new { @class = "datepicker" } })
+                                @Html.ValidationMessageFor(m => m.Customers.LessonDates)
+                            </div>
+
+                            <div class="form-group">
+                                @Html.Label("Your Lesson Date")&nbsp;<span style="color:black; font-size:xx-large" class="glyphicon glyphicon-thumbs-down"></span>
+                                <input type="text" id="alternate" size="30" readonly>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.Label("Lesson Time Slots")&nbsp;<span style="color:black; font-size:xx-large" class="glyphicon glyphicon-thumbs-down"></span>
+                                @Html.DropDownListFor(m => m.Customers.TimeSlotsID, new SelectList(Model.TimeSlots, "ID", "TimeOfLesson"), "Please pick Lesson Time Slot", new { @class = "form-control", style = "color:#f2545f" })
+                                @Html.ValidationMessageFor(m => m.Customers.TimeSlots)
+                            </div>
+                        </div>
+                        <input name="submit" type="submit" class="form-control" id="submit" value="Book Lesson">
+                    </div>
+                    @Html.HiddenFor(m => m.Customers.ID)
+                    @Html.AntiForgeryToken()
+
+
+                }
+            </div>
+        </div>
+
+
+    </div>
+</section>
+
+@*<br />
+    <img src="@Url.Content("~/images/newLesson.jpg")" style="width:110%; padding-right:85px"/>*@

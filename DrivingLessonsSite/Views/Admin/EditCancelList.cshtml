@@ -1,0 +1,57 @@
+﻿@model IEnumerable<DrivingLessonsSite.Models.Customer>
+
+
+@{
+    ViewBag.Title = "EditCancelList";
+}
+
+
+
+<section id="contact" class="parallax-section">
+    <h2 style="text-decoration:underline;text-decoration-color:#f2545f" class="intro-text text-center">
+        Bookings under Surname: <span style="color:#f2545f">@Model.First().Surname </span>
+    </h2>
+
+    <br />
+    <table class="table-bordered table-hover" align="center" style="background-color:white">
+
+        <thead style="background-color:#f2545f">
+            <tr>
+                <th>Edit</th>
+                <th>Delete</th>
+                <th>First Name</th>
+                <th>Surname</th>
+                <th>Telephone/Contact Number</th>
+                <th>Time Slot</th>
+                <th>Lesson Date</th>
+            </tr>
+        </thead>
+
+        <tbody>
+
+
+            @foreach (var lesson in Model)
+            {
+                <tr>
+                    <td>@Html.ActionLink(" ", "Edit", "Admin", new { id = lesson.ID, lessonDateID = lesson.LessonDatesID }, new { @class = "glyphicon glyphicon-pencil" })</td>
+                    <td>@Html.ActionLink(" ", "Delete", "Admin", new { id = lesson.ID, LessDateID = lesson.LessonDatesID }, new { @class = "glyphicon glyphicon-trash" })</td>
+                    <td>@lesson.FirstName</td>
+                    <td>@lesson.Surname</td>
+                    <td>@lesson.TelephoneNo</td>
+                    <td>@lesson.TimeSlots.TimeOfLesson</td>
+                    <td>@lesson.LessonDates.Date.ToString("dd/MM/yyyy")</td>
+                </tr>
+            }
+
+
+        </tbody>
+    </table>
+    <div style="text-align:center">
+        @Html.ActionLink("BACK", "Index", "Admin", htmlAttributes: new { @class = "btn btn-danger" })
+    </div>
+</section>
+
+
+
+
+

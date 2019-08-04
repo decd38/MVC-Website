@@ -1,0 +1,58 @@
+﻿@model DrivingLessonsSite.ViewModels.CustomerLesson
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<link href="~/Content/themes/base/jquery-ui.min.css" rel="stylesheet" />
+<link href="~/Content/font-awesome.min.css" rel="stylesheet" />
+
+<section id="contact" class="parallax-section" style="text-align:center">
+    <div class="container" style="text-align:center">
+        <div data-wow-delay="0.6s" style="background-color:whitesmoke;text-align:center;border-radius:20px">
+            <div class="contact_des" style="text-align:center">
+                <h2 style="color:#f2545f">Are you sure you want to cancel this lesson?</h2>
+                <br />
+                @using (Html.BeginForm("Delete", "Admin", new { LessDateID = Model.Customers.LessonDatesID }))
+                {
+
+                    <table class="table-bordered table-hover" align="center" style="background-color:white">
+
+                        <thead style="background-color:#f2545f">
+                            <tr>
+                                <th>First Name</th>
+                                <th>Surname</th>
+                                <th>Telephone/Contact Number</th>
+                                <th>Time Slot</th>
+                                <th>Lesson Date</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <td>@Html.DisplayFor(m => m.Customers.FirstName)</td>
+                                <td>@Html.DisplayFor(m => m.Customers.Surname)</td>
+                                <td>@Html.DisplayFor(m => m.Customers.TelephoneNo)</td>
+                                <td>@Html.DisplayFor(m => m.Customers.LessonDates.Date)</td>
+                                <td>@Html.DisplayFor(m => m.Customers.TimeSlots.TimeOfLesson)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <br />
+                    <div style="text-align:center">
+                        <input name="submit" type="submit" class="btn btn-danger" id="submit" value="YES">
+                        @Html.ActionLink("NO", "Index", "Admin", htmlAttributes: new { @class = "btn btn-danger", @style = "margin-top: 15px" })
+                    </div>
+                    @Html.AntiForgeryToken()
+                }
+            </div>
+        </div>
+        
+
+    </div>
+</section>
+
+
+
+
+

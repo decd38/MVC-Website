@@ -1,0 +1,94 @@
+﻿@**@<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+
+</head>
+<body>
+    <!-- =========================
+         NAVIGATION LINKS
+    ============================== -->
+    <div class="navbar navbar-fixed-top custom-navbar" role="navigation">
+        <span>@Html.Partial("_LoginPartial")</span>
+        <div class="container">
+
+            <!-- navbar header -->
+            <div class="navbar-header">
+                <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon icon-bar"></span>
+                    <span class="icon icon-bar"></span>
+                    <span class="icon icon-bar"></span>
+                </button>
+                <a href="#" class="navbar-brand">MDDS<span style="color:#f2545f">Driving School</span></a>
+            </div>
+
+            <div class="collapse navbar-collapse">
+
+                <ul class="nav navbar-nav navbar-right" style="position: relative;right: 250px">
+                    <li class="smoothScroll">@Html.ActionLink("Home", "Index", "Home")</li>
+                    <li class="smoothScroll">@Html.ActionLink("About", "About", "Home")</li>
+                    <li class="smoothScroll">@Html.ActionLink("Pricing", "Pricing", "Home")</li>
+                    <li class="smoothScroll">@Html.ActionLink("Book Lessons", "New", "Lesson")</li>
+                    <li class="smoothScroll">@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    @if (User.IsInRole("CanManageLessons"))
+                    {
+                        <li>
+                            @Html.ActionLink("Admin", "Index", "Admin")
+                        </li>
+                    }
+                </ul>
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    @RenderBody()
+
+    <!-- =========================
+         FOOTER SECTION
+     ============================== -->
+    <footer>
+        <div class="container">
+            <div class="row">
+
+                <div class="col-md-12 col-sm-12">
+                    <p class="wow fadeInUp" data-wow-delay="0.6s">
+                        Copyright &copy; 2018 MDDS
+                    </p>
+
+                    <ul class="social-icon">
+                        <li><a href="https://en-gb.facebook.com/" class="fa fa-facebook wow fadeInUp" data-wow-delay="1s"></a></li>
+                        <li><a href="https://twitter.com/?lang=en-gb" class="fa fa-twitter wow fadeInUp" data-wow-delay="1.3s"></a></li>
+                        
+                    </ul>
+
+                </div>
+
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- Back top -->
+    <a href="#back-top" class="go-top"><i class="fa fa-angle-up"></i></a>
+    </div>
+
+   
+</body>
+</html>
+
+
+
+

@@ -1,0 +1,20 @@
+﻿@{
+    ViewBag.Title = "Confirm Email";
+}
+
+<section id="register" class="parallax-section">
+    <div class="container">
+        <div class="row">
+            <div class="wow fadeInUp col-md-6 col-sm-6" data-wow-delay="0.6s">
+
+                <h2 style="color:#f2545f">Email Confirmed!</h2>
+                <br />
+                <div>
+                    <p>
+                        Thank you for confirming your email. Please @Html.ActionLink("Click here to Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
